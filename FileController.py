@@ -26,6 +26,7 @@ class FileController:
             else:
                 protein += line
                 protein = protein[0:-1]
+        self.getFile().close()
         return list
 
 
