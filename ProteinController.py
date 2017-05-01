@@ -22,7 +22,6 @@ class ProteinController:
             g = i + 1
             for g in range(count):
                 proteins[i].getDiferences().insert(g ,self.compareProteins(proteins[i], proteins[g]))
-        return proteins
     pass
 
 

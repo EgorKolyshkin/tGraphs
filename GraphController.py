@@ -8,7 +8,7 @@ class GraphController:
 
     def __init__(self, proteins):
         self.matrix = [[]]
-        for i in range (len(proteins)):
+        for i in range(len(proteins)):
             self.matrix.insert(i, proteins[i].getDiferences())
     def getMatrix(self):
         return self.matrix
@@ -19,6 +19,7 @@ fileController = FileController()
 list = fileController.parseFile(".idea\Proteins")
 list = proteinController.difProteins(list)
 graphController = GraphController(list)
-print(graphController.getMatrix())
-
-
+N = numpy.matrix(graphController)
+G = nx.from_numpy_matrix(N)
+nx.draw(G)
+plt.show()
